@@ -10,7 +10,7 @@ import datetime
 from bson import ObjectId
 from flask import render_template, request, session, redirect, url_for, flash, Flask
 import pymongo
-my_collections = pymongo.MongoClient("mongodb+srv://nagaphaneendra2016:nagaphaneendra2016@cluster0.y9mnl5j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+my_collections = pymongo.MongoClient("mongodb+srv://nagaphaneendra2016:nagaphaneendra2016@cluster0.y9mnl5j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
                                         tls=True,
                                         tlsAllowInvalidCertificates=False,  # Set to True only for testing if needed
                                         connectTimeoutMS=30000,
