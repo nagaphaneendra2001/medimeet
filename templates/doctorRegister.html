@@ -1,0 +1,91 @@
+{% include 'Navbar1.html' %}
+<script>
+    display(){
+      console(document.getElementById("name").value)
+    }
+</script>
+<style>
+  .form-control {
+    border-radius: 0px;
+  }
+  
+  .form-control:hover {
+    border-radius: 5px;
+  }
+  label,button,h4,h2,input,div{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bold;
+    }
+</style>
+    <div class="container">
+        <div class="row" style="margin-left: 50px;">
+            <div class="card2 mt-1">
+                <div class=" h2 mt-1" style="color: navy;text-align: center;">Doctor Registration</div>
+                <form action="doctorRegister1" method="post">
+                  <div class="row" style="margin-top: 0%;">
+                    <div class="container">
+                    
+                      <div class="text-center h3" style="color: {{color}};">{{message}}</div>
+                    </div>
+                    <div class="col-md-5 mt-3">
+                        <label for="name" class="form-label">First Name</label>
+                        <input class="form-control border-left-0 border-top-0 border-right-0" type="text" name="firstname" id="name" onclick="display()" required placeholder="Enter Name" class="form-control">
+                     </div>
+                     <div class="col-md-1 mt-3">
+                     </div>
+                     <div class="col-md-5 mt-3">
+                      <label for="name" class="form-label">Last Name</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="text" name="lastname" id="name" onclick="display()" required placeholder="Enter Name" class="form-control">
+                   </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                    <div class="col-md-5 mt-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="email" name="email" id="email" required placeholder="Enter Email" class="form-control">
+                   </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                    <div class="col-md-5 mt-3">
+                      <label for="phone" class="form-label">Phone Number</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="number" name="phone" id="phone" required placeholder="Enter Number" class="form-control">
+                   </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                    <div class="col-md-5 mt-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="password" name="password" id="password" required placeholder="Enter Password" class="form-control">
+                   </div>
+                   <div class="col-md-1 mt-3">
+                  </div>
+                  <div class="col-md-5 mt-3">
+                    <label for="password" class="form-label">Confirm Password</label>
+                    <input class="form-control border-left-0 border-top-0 border-right-0" type="password" name="conf_password" id="conf_password" required placeholder="Enter Password" class="form-control">
+                 </div>
+                 <div class="col-md-1 mt-3">
+                </div>
+                <div class="col-md-5 mt-3">
+                  <label for="password" class="form-label">Address</label>
+                  <textarea class="form-control border-left-0 border-top-0 border-right-0" type="text" name="address" id="address" rows="1" class="form-control"></textarea>
+               </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                    
+                     <div class="col-md-5 mt-3">
+                      <label for="catg">Select Specialization</label>
+                        <select class="form-control border-left-0 border-top-0 border-right-0" name="Specialization" id="catg">
+                          {%for i in spliz%}
+                          <option value="{{i}}">{{i}}</option>
+                          {% endfor %}
+									</select></div>
+                     <div class="col-md-12 mt-5">
+                      <center>
+                        <input type="submit" value="Register" style="font-weight: bold;font-size: x-large;" class="btn btn-primary mt-3">
+                      </center>
+                     </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

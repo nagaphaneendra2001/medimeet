@@ -1,0 +1,75 @@
+{% include 'Navbar.html' %}
+<script>
+    display(){
+      console(document.getElementById("name").value)
+    }
+</script>
+<style>
+  .form-control {
+    border-radius: 0px;
+  }
+  
+  .form-control:hover {
+    border-radius: 5px;
+  }
+  label,button,h4,h2,input,div{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bold;
+    }
+</style>
+    <div class="container">
+        <div class="row" style="margin-left: 50px;">
+            <div class="card2 mt-3 p-3">
+                <div class=" h2 mt-3" style="color: navy;text-align: center;">Patient Registration</div>
+                <form action="userRegister1" method="post">
+                  <div class="row">
+                    <div class="container">
+                      <br>
+                      <div class="text-center h3" style="color: {{color}};">{{message}}</div>
+                    </div>
+                    <div class="col-md-5 mt-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input class="form-control border-left-0 border-top-0 border-right-0" type="text" name="firstname" id="name" onclick="display()" required placeholder="Enter Name" class="form-control">
+                     </div>
+                     <div class="col-md-1 mt-3">
+                     </div>
+                     <div class="col-md-5 mt-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="email" name="email" id="email" required placeholder="Enter Email" class="form-control">
+                   </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                    <div class="col-md-5 mt-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="password" name="password" id="password" required placeholder="Enter Password" class="form-control">
+                   </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                    <div class="col-md-5 mt-3">
+                      <label for="password" class="form-label">Confirm Password</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="password" name="conf_password" id="conf_password" required placeholder="Confirm Password" class="form-control">
+                   </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                    <div class="col-md-5 mt-3">
+                      <label for="phone" class="form-label">Phone Number</label>
+                      <input class="form-control border-left-0 border-top-0 border-right-0" type="number" name="phone" id="phone" required placeholder="Enter Number" class="form-control">
+                   </div>
+                     <div class="col-md-1 mt-3">
+                    </div>
+                     <div class="col-md-5 mt-3">
+                      <label for="address" class="form-label">Address</label>
+                      <textarea cols="30" rows="1" class="form-control border-left-0 border-top-0 border-right-0" type="text" name="address" id="address" required placeholder="Enter address" class="form-control">    </textarea>                                
+                      </div>
+                     <div class="col-md-12 mt-5">
+                      <center>
+                        <input type="submit" value="Register" style="font-weight: bold;font-size: x-large;" class="btn btn-primary mt-3">
+                      </center>
+                     </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

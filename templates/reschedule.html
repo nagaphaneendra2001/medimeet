@@ -1,0 +1,91 @@
+{% include 'Navbar1.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<meta charset="ISO-8859-1">
+<title>Payment</title>
+<style>
+
+.bg-img {
+	background-image:url('./static/images/bookapp.jpg');
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 89vh;
+}
+label,button,h4,h2,input,div{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bold;
+    }
+
+body {
+	overflow: hidden;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#doctor").on("change",()=>{
+      getSlots();
+    })
+   $("#bookdate").on("change",()=>{
+      getSlots();
+    })
+  });
+  function getSlots(){
+      let url = "getSlots?patient_id="+$("#pat_id").val()+"&bookdate="+$("#bookdate").val()
+      console.log(url)
+      $.get(url, function(data, status){
+        console.log(data)
+        $("#booktime").html(data)
+      });   
+  }
+  
+  </script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class=" col-md-7 bg-img" >
+
+      </div>
+      <div class="col-md-3">
+        <br>
+        <br>
+      
+       
+        <div class="card2 mt-2">
+                <form action="reschedule1">     
+                    <input type="hidden" name="pat_id" id="pat_id" value={{pat_id}}>
+                    <br>
+                        <div class="form-group">
+                            <label>Appointment Date</label> <input type="date" required="required"
+                                class="form-control border-left-0 border-top-0 border-right-0"
+                                id="bookdate" aria-describedby="emailHelp" 
+                                name="bookdate" >
+                        </div>
+                        <br>
+                        <div class="form-group">
+                          <label for="Appointment_Time" class="form-label">Appointment Time</label>
+                          <select name="booktime" id="booktime" class="form-control" required>
+                            <option value="">Choose Slot</option>
+            
+                          </select>
+              
+              <div class="mt-2" style="padding-left: 90px;">
+                  <br><br>
+                  <input type="submit" value="Reschedule" class="btn btn-primary w-50 mt-2" >
+              </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="col-md-2" style="padding: 0%;"></div>
+    </div>
+  </div>
+</body>

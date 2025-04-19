@@ -1,0 +1,125 @@
+{% include 'Navbar1.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<meta charset="ISO-8859-1">
+<title>Login Here</title>
+<style>
+.card {
+	/* 	border-radius: 50px 20px; */
+	padding: 10px;
+	/* border: 2px solid blue; */
+}
+
+.form-control {
+	border-radius: 0px;
+}
+
+.form-control:hover {
+	border-radius: 5px;
+}
+
+.bg-img {
+	background-image: url('./static/images/patienthome.jpg');
+	height: 100vh;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+label,button,h4,h2,input,div{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bold;
+    }
+
+body {
+	overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+
+  
+	<div class="row">
+		
+		<div class="col-md-7 mt-4">
+
+			<div class="container-fluid">
+
+				<div class="text-center">
+
+				</div>							
+					<div class="card border-0">
+						<div class="card-body">
+								<div class=" h2" style="color: navy;text-align: center;">Book Appointment</div>
+								<br>
+							<div class="container">
+								<h3 class="text-center" style="color: red;">{{message}}</h3>
+							</div>
+								<form action="bookapp1" method="post">
+							<div class="row">
+								<div class="col-5">
+									<div class="form-group">
+										<label>Patient Name</label> <input type="text" required="required" readonly
+											class="form-control border-left-0 border-top-0 border-right-0"
+											id="pname" aria-describedby="emailHelp"
+											name="pname" autofocus="on" value={{name}}>
+									</div>
+								</div>
+								<div class="col-2"></div>
+								<div class="col-5">
+									<div class="form-group">
+										<label>DOB</label> <input type="Date" required="required"
+											class="form-control border-left-0 border-top-0 border-right-0"
+											id="age" aria-describedby="emailHelp" maxlength="2" min="0"
+											name="age" autofocus="on" >
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-5" style="align-items: center;">
+									<label for="purpose">Select Purpose</label>
+									<select class="form-control border-left-0 border-top-0 border-right-0" name="purpose" id="purpose">
+										{%for i in spliz%}
+										<option value="{{i}}">{{i}}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-2"></div>
+								<div class="col-5">
+									<div class="form-group">
+										<label for="exampleInput Password1">Gender</label><br>	
+											<input type="radio" id="male" name="gender" value="Male">
+											<label for="male">Male</label>		
+											<input type="radio" id="gender" name="gender" value="Female">
+											<label for="female">Female</label>	
+									</div>
+								</div>
+							</div>
+							<br>
+							
+							<br>
+									<center>
+										<button type="submit" 
+											class="btn btn-primary w-25">
+											<h4>Continue</h4>
+										</button>
+									</center>
+								<br>							
+							</form>
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="col-md-5">
+			<div class="container-fluid bg-img"></div>
+		</div>
+	</div>
+</body>
+</html>

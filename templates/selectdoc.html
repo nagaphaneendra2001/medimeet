@@ -1,0 +1,108 @@
+{% include 'Navbar1.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<meta charset="ISO-8859-1">
+<title>Payment</title>
+<style>
+
+.bg-img {
+	background-image:url('./static/images/bookapp.jpg');
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 89vh;
+}
+label,button,h4,h2,input,div{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    font-weight: bold;
+    }
+
+body {
+	overflow: hidden;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#doctor").on("change",()=>{
+      getSlots();
+    })
+   $("#bookdate").on("change",()=>{
+      getSlots();
+    })
+  });
+  function getSlots(){
+      let url = "getSlots?doctor_id="+$("#doctor").val()+"&bookdate="+$("#bookdate").val()
+      console.log(url)
+      $.get(url, function(data, status){
+        console.log(data)
+        $("#booktime").html(data)
+      });   
+  }
+  
+  </script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class=" col-md-7 container-fluid bg-img">
+
+      </div>
+      
+      <div class="col-md-3">
+        <br>
+        <br>
+      
+        <br><br>
+        <div class="card2">
+                <form action="selectdoc" method="post">
+                <input type="hidden" name="pname" value="{{pname}}">
+                <input type="hidden" name="age" value="{{age}}">
+                <input type="hidden" name="gender" value="{{gender}}">
+                <input type="hidden" name="purpose" value="{{purpose}}">
+                
+                    <div class="form-group">
+                        <label for="doctor">Select Doctor</label>
+									<select class="form-control border-left-0 border-top-0 border-right-0" name="doctor" id="doctor">
+										{%for i in doctor.keys()%}
+										<option value="{{i}}">{{doctor.get(i)}}</option>
+										{% endfor %}
+                                    </select>
+                                    
+                    </div>
+                    <br>
+                        <div class="form-group">
+                            <label>Appointment Date</label> <input type="date" required="required"
+                                class="form-control border-left-0 border-top-0 border-right-0"
+                                id="bookdate" aria-describedby="emailHelp" 
+                                name="bookdate" >
+                        </div>
+                        <br>
+                        <div class="form-group">
+
+                                <label for="Appointment_Time" class="form-label">Appointment Time</label>
+                                <select name="booktime" id="booktime" class="form-control" required>
+                                  <option value="">Choose Slot</option>
+                  
+                                </select>
+                        </div>
+       
+              <div class="mt-2" style="padding-left: 90px;">
+                  <br>
+                  <input type="submit" value="Book" class="btn btn-primary w-25 " >
+              </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</body>
